@@ -1,4 +1,8 @@
 require_relative 'display/menu'
-require_relative 'core/style'
+require_relative 'display/style'
 
-menu
+produtos = []
+
+menu(produtos)
+
+
