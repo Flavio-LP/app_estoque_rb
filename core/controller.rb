@@ -30,11 +30,6 @@ end
 
 def listar_produtos(produtos)
 
-    imprime("=",5,"yellow",false) || imprime(" Produtos ",1,"blue",false) || imprime("=",5,"yellow",true)
-    sleep(2)
-    limpa_tela()
-
-
     imprime("-",10,"red",true)
     produtos.each do |produto|
       
@@ -43,7 +38,7 @@ def listar_produtos(produtos)
       imprime("Quantidade: ",1,"blue",false) || imprime(produto[:quantidade].to_s,1,"white",true)
       imprime("-",10,"red",true)
     end  
-    sleep(2)
+    sleep(5)
     limpa_tela()
 end
 
@@ -60,6 +55,35 @@ def retirar_produto(produtos)
   end
 
   puts table
-  sleep(5)
+  sleep(1)
 
+  imprime("Digite o ID do produto:", 1, "blue", false)
+    id = gets.to_i
+    
+    produto = produtos.find{|p| p[:id] == id}
+    limpa_tela()
+    unless produto 
+      imprime("Produto não encontrado", 1, "red", true)
+      sleep(2)
+      limpa_tela()
+      return
+    end
+
+    imprime("Digite a quantidade que deseja retirar:", 1, "blue", false)
+    quantidade = gets.to_i
+
+    unless quantidade > 0
+      imprime("Quantidade inválida", 1, "red", true)
+      sleep(2)
+      limpa_tela()
+      return
+    end
+
+    if produto[:quantidade] - quantidade >= 0
+      produto[:quantidade] -= quantidade
+      imprime("Produto retirado com sucesso", 1, "green", true)
+    else
+      imprime("Quantidade indisponível", 1, "red", true)
+      
+    end
 end

@@ -24,8 +24,14 @@ def menu(produtos)
           limpa_tela()
           cadastrar_produto(produtos)
         when 2
+          imprime("=",5,"yellow",false) || imprime(" Produtos ",1,"blue",false) || imprime("=",5,"yellow",true)
+          sleep(2)
+          limpa_tela()
           listar_produtos(produtos)
         when 3
+          imprime("=",5,"yellow",false) || imprime(" Remover produtos ",1,"blue",false) || imprime("=",5,"yellow",true)
+          sleep(2)
+          limpa_tela()
           retirar_produto(produtos)
         when 4
           break
