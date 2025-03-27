@@ -1,0 +1,12 @@
+GEM
+  specs:
+    colorize (1.1.0)
+
+PLATFORMS
+  x64-mingw-ucrt
+
+DEPENDENCIES
+  colorize
+
+BUNDLED WITH
+   2.6.6
